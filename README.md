@@ -1,2 +1,5 @@
-# recuperatorio-segundoparcial-IG2026
-Recuperatorio del segundo parcial de Informática General I - Furci Kupelian Kiara Constanza
+Kiara Constanza Furci Kupelian
+
+Recuperatorio Segundo Parcial - Informática General I
+
+Artes Multimediales - UNA
