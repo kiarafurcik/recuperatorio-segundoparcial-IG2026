@@ -1,0 +1,49 @@
+body {
+    background-image: url("../img/fondo.png");
+    background-repeat: repeat;
+    color: #7bb5cc;
+}
+
+.contenedor {
+    width: 75%;
+    margin: 0 auto;
+    background-color: rgb(218, 244, 255);
+    color: rgba(20, 49, 78, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+nav {
+    background-color: #01366f;
+    color: white;
+    padding: 5px;
+    display: inline-block;
+    border:#123357 solid 5px;
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    font-family: 'Barlow', sans-serif;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+nav a:hover {
+    color: #3fd4e8;
+}
+
+h1, h2, h3 {
+    font-family: 'Barlow', sans-serif;
+    color: #01366f;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.columnasUno {
+}
