@@ -72,5 +72,5 @@ let botonTamaño = document.querySelector("#personalizar");
     }
 });
 
-// Datos al azar
+// Datos al azar con un switch, cada caso un dato. Al tocar un botón toma un número al azar que va a coincidir con un dato
 

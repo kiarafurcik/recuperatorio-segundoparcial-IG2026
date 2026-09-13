@@ -115,6 +115,8 @@ footer {
     border-radius: 2px;
 }
 
+/* css de la galería de imágenes */
+
 #obras {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -136,4 +138,13 @@ footer {
 
 #personalizar:hover {
     color: aqua;
+}
+
+/* css de la página de datos curiosos + sus interacciones */
+
+#contenedorDatos {
+    padding: 15px;
+    background-color: #a5d0fe;
+    width: 90%;
+    border-radius: 2px;
 }
