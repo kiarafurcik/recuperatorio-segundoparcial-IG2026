@@ -52,9 +52,7 @@ botonDatosRandom.addEventListener("click", function() {
 
 });
 
-// Ejercicio luces móviles de JS
-
-let obrasUsuario = [];
+// Ejercicio luces móviles de JS - primer formulario
 
 let obras = document.querySelector("#obrasCantidad");
 let enviar = document.querySelector("#botonEnviar");
@@ -66,6 +64,8 @@ datos.style.hidden = true
 
 enviar.addEventListener("click", function() {
 
+    event.preventDefault();
+
     let cantidad = Number(obras.value);
 
     if (cantidad <= 0) {
@@ -74,15 +74,51 @@ enviar.addEventListener("click", function() {
     } else {
 
     datos.style.hidden = false;
-    
+
     obras.disabled = true;
     enviar.disabled = true;
 
     }
 });
 
+//Segundo formulario
 
-let nombre = document.querySelector("#nombreObra");
-let luces = document.querySelector("#lucesCantidad");
-let horas = document.querySelector("#lucesHoras");
+let obrasUsuario = [];
+
+let botonEnviarObra = document.querySelector("#enviarObra");
+
+botonEnviarObra.addEventListener("click", function() { 
+
+    let nombreValor = document.querySelector("#nombreObra").value;
+    let lucesValor = document.querySelector("#lucesCantidad").value;
+    let horasValor = document.querySelector("#lucesHoras").value;
+
+    if (nombreValor === "") {
+        alert("Ingresar nombre de la obra");
+
+    } else if (lucesValor <= 0) {
+        alert("Ingresar cantidad de luces mayor a 0");
+
+    } else if (horasValor <= 0 || horasValor > 24) {
+        alert("Ingresar un valor entre 1 y 24")
+    } else {
+
+        obrasUsuario.push({
+        nombre : nombreValor,
+        luces : lucesValor,
+        horas : horasValor,
+
+    });
+    }
+    if (obrasUsuario.length < Number(obras.value)) {
+
+        document.querySelector("#nombreObra").value = "";
+        document.querySelector("#lucesCantidad").value = "";
+        document.querySelector("#lucesHoras").value = "";
+
+
+    } else {
+        botonEnviarObra.disabled = true;
+    }
+});
 
