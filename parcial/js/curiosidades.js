@@ -51,3 +51,38 @@ botonDatosRandom.addEventListener("click", function() {
     }
 
 });
+
+// Ejercicio luces móviles de JS
+
+let obrasUsuario = [];
+
+let obras = document.querySelector("#obrasCantidad");
+let enviar = document.querySelector("#botonEnviar");
+
+
+
+let datos = document.querySelector("#datosObras");
+datos.style.hidden = true
+
+enviar.addEventListener("click", function() {
+
+    let cantidad = Number(obras.value);
+
+    if (cantidad <= 0) {
+        alert("El valor ingresado debe ser mayor a 0")
+        return;
+    } else {
+
+    datos.style.hidden = false;
+    
+    obras.disabled = true;
+    enviar.disabled = true;
+
+    }
+});
+
+
+let nombre = document.querySelector("#nombreObra");
+let luces = document.querySelector("#lucesCantidad");
+let horas = document.querySelector("#lucesHoras");
+

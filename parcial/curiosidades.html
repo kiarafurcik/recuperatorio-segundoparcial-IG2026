@@ -35,12 +35,27 @@
                             </section>
                             <hr>
                             <section>
-                                <h2>Ejercicio : " Controla las luces "</h2>
+                                <h2>Ejercicio : " Controla las luces "</h2> <!--Para explicar el ejercicio de JS pedido-->
                                 <p>En este ejercicio podrás controlar el funcionamiento lumínico de las obras de Rafael Lozano-Hemmer.</p>
                                 <p>En el siguiente formulario, deberás ingresar los datos de la cantidad de obras a desarrollar, junto con su nombre y la cantidad de horas que esas luces funcionan en un día. También, deberás agregar el consumo de hora por electricidad de cada luz móvil y su costo por kwh.</p>
                                 <br>
-                                <form>
+                                <form id="cantidad">
+                                    <label>Cantidad de Obras</label>
+                                    <input type="number" id="obrasCantidad" required>
 
+                                    <button type="submit" id="botonEnviar">Enviar</button>
+                                </form>
+                                <form id="datosObras">
+                                    <label>Nombre de la Obra</label>
+                                    <input type="text" id="nombreObra" required>
+                                    
+                                    <label>Cantidad de Luces</label>
+                                    <input type="number" id="lucesCantidad" required>
+
+                                    <label>Horas de funcionamiento (Por día)</label>
+                                    <input type="number" id="lucesHoras" required>
+
+                                    <button type="button" id="enviarObra">Enviar Obra</button>
                                 </form>
                             </section>
                         </div>

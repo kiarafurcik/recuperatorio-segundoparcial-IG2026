@@ -1,3 +1,4 @@
+
 // Galeria de imagenes
 
 let obras = [
