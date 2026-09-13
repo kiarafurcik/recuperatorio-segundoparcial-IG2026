@@ -58,34 +58,33 @@ let obras = document.querySelector("#obrasCantidad");
 let enviar = document.querySelector("#botonEnviar");
 
 
-
 let datos = document.querySelector("#datosObras");
-datos.style.hidden = true
 
-enviar.addEventListener("click", function() {
+let botonEnviarObra = document.querySelector("#enviarObra");
+botonEnviarObra.disabled =  true
+
+enviar.addEventListener("click", function(event) {
 
     event.preventDefault();
 
     let cantidad = Number(obras.value);
+
 
     if (cantidad <= 0) {
         alert("El valor ingresado debe ser mayor a 0")
         return;
     } else {
 
-    datos.style.hidden = false;
+    botonEnviarObra.disabled = false;
 
     obras.disabled = true;
     enviar.disabled = true;
-
     }
 });
 
 //Segundo formulario
 
 let obrasUsuario = [];
-
-let botonEnviarObra = document.querySelector("#enviarObra");
 
 botonEnviarObra.addEventListener("click", function() { 
 
@@ -110,15 +109,14 @@ botonEnviarObra.addEventListener("click", function() {
 
     });
     }
+
+    document.querySelector("#nombreObra").value = "";
+    document.querySelector("#lucesCantidad").value = "";
+    document.querySelector("#lucesHoras").value = ""; //Van afuera del if para que al poner los datos de la tercera obra, no queden viendose despues de enviarlos.
+
     if (obrasUsuario.length < Number(obras.value)) {
-
-        document.querySelector("#nombreObra").value = "";
-        document.querySelector("#lucesCantidad").value = "";
-        document.querySelector("#lucesHoras").value = "";
-
 
     } else {
         botonEnviarObra.disabled = true;
     }
 });
-

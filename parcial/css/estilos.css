@@ -179,3 +179,28 @@ footer {
     width: 25%;
     border-radius: 2px;
 }
+
+/* CSS del ejercicio (formularios) */
+
+form {
+	background: #afe0ff;
+	border: 0.4em solid #2f68a5;
+	padding: 1em;
+}
+fieldset {
+	background: #96c9ff;
+	border: 0.2em solid #2f68a5;
+	margin: 1em 0;
+    font-family: 'Barlow', sans-serif;
+}
+
+form button {
+	background-color: #2f68a5;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    color: #b9dfee;
+    padding: 10px;
+    border: #123357;
+    border-radius: 2px;
+    margin-top: 15px;
+}
