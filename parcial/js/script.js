@@ -71,4 +71,3 @@ let botonTamaño = document.querySelector("#personalizar");
         fotos.style.width = "50%";
     }
 });
-
