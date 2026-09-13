@@ -106,6 +106,7 @@ footer {
     background-color: #a5d0fe;
     width: 75%;
     border-radius: 2px;
+    font-family: 'Roboto', sans-serif;
 }
 
 #columnaTres {
@@ -113,6 +114,7 @@ footer {
     background-color: #a5d0fe;
     width: 25%;
     border-radius: 2px;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* css de la galería de imágenes */
@@ -145,6 +147,35 @@ footer {
 #contenedorDatos {
     padding: 15px;
     background-color: #a5d0fe;
-    width: 90%;
+    width: 75%;
+    border-radius: 2px;
+    font-family: 'Roboto', sans-serif;
+}
+#contenedorDatos #datoCurioso {
+    background-color: #2f68a5;
+    color: #f2f8ff;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    padding: 15px;
+}
+
+#botonDato {
+    background-color: #2f68a5;
+    font-family: 'Barlow', sans-serif;
+    font-size: 20px;
+    color: #b9dfee;
+    padding: 10px;
+    border: #123357;
+    border-radius: 2px;
+}
+
+#botonDato:hover {
+    color: aqua;
+}
+
+#contenedorImagenes {
+    padding: 15px;
+    background-color: #a5d0fe;
+    width: 25%;
     border-radius: 2px;
 }
