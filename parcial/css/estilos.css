@@ -104,18 +104,36 @@ footer {
 #columnaDos {
     padding: 15px;
     background-color: #a5d0fe;
-    width: 70%;
+    width: 75%;
     border-radius: 2px;
 }
 
 #columnaTres {
     padding: 15px;
     background-color: #a5d0fe;
-    width: 30%;
+    width: 25%;
     border-radius: 2px;
 }
 
 #obras {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
+}
+
+#obraTamaño[i] {
+    width: 500px;
+    height: auto;
+}
+
+#personalizar {
+    background-color: #2f68a5;
+    font-family: 'Barlow', sans-serif;
+    color: #b9dfee;
+    padding: 10px;
+    border: #123357;
+    border-radius: 2px;
+}
+
+#personalizar:hover {
+    color: aqua;
 }
