@@ -57,15 +57,32 @@ botonDatosRandom.addEventListener("click", function() {
 let obras = document.querySelector("#obrasCantidad");
 let enviar = document.querySelector("#botonEnviar");
 
+let consumoKwh = document.querySelector("#consumo");
+let costo = document.querySelector("#costoKwh");
+
 
 let datos = document.querySelector("#datosObras");
 
 let botonEnviarObra = document.querySelector("#enviarObra");
+
+// Declaro lo que voy a usar para calcular al final
+let botonCalcular = document.querySelector("#calcular");
+let aparecerResultados = document.querySelector("#resultados");
+let botonReiniciar = document.querySelector("#reinicio");
+
 botonEnviarObra.disabled =  true
+botonReiniciar.disabled = false;
 
-enviar.addEventListener("click", function(event) {
 
-    event.preventDefault();
+botonReiniciar.addEventListener("click", function() {
+
+    location.reload();
+
+});
+
+enviar.addEventListener("click", function(e) {
+
+    e.preventDefault();
 
     let cantidad = Number(obras.value);
 
@@ -73,12 +90,23 @@ enviar.addEventListener("click", function(event) {
     if (cantidad <= 0) {
         alert("El valor ingresado debe ser mayor a 0")
         return;
+
+    } else if (Number(consumoKwh.value) <= 0) {
+        alert("Debe ingresar un número mayor a 0");
+        return;
+
+    } else if (Number(costo.value) <= 0) {
+        alert("Debe ingresar un valor por kWh mayor a 0");
+        return;
+
     } else {
 
     botonEnviarObra.disabled = false;
 
     obras.disabled = true;
     enviar.disabled = true;
+    consumoKwh.disabled = true;
+    costo.disabled = true
     }
 });
 
@@ -89,8 +117,8 @@ let obrasUsuario = [];
 botonEnviarObra.addEventListener("click", function() { 
 
     let nombreValor = document.querySelector("#nombreObra").value;
-    let lucesValor = document.querySelector("#lucesCantidad").value;
-    let horasValor = document.querySelector("#lucesHoras").value;
+    let lucesValor = Number(document.querySelector("#lucesCantidad").value);
+    let horasValor = Number(document.querySelector("#lucesHoras").value);
 
     if (nombreValor === "") {
         alert("Ingresar nombre de la obra");
@@ -114,9 +142,79 @@ botonEnviarObra.addEventListener("click", function() {
     document.querySelector("#lucesCantidad").value = "";
     document.querySelector("#lucesHoras").value = ""; //Van afuera del if para que al poner los datos de la tercera obra, no queden viendose despues de enviarlos.
 
+
     if (obrasUsuario.length < Number(obras.value)) {
 
     } else {
         botonEnviarObra.disabled = true;
+        botonCalcular.disabled = false;
+
+        let calcularConsumo = Number(consumoKwh.value);
+        let totalConsumo = 0;
+
+        // para recorrer las obras:
+        
+        for (let i = 0; i < obrasUsuario.length; i++) {
+            
+            let consumoPorObra = obrasUsuario[i].luces * obrasUsuario[i].horas * calcularConsumo;
+
+            totalConsumo = totalConsumo + consumoPorObra; // Acá esta el consumo total de todas las obras
+        }
+
+         let promedio = totalConsumo / obrasUsuario.length; //Acá está el promedio por obra
+
+        // Para calcular la mayor obra
+
+        let obraMasHoras = 0
+
+        for (let i = 0; i < obrasUsuario.length; i++) {
+
+            if (obrasUsuario[i].horas > obrasUsuario[obraMasHoras].horas) {
+
+                obraMasHoras = i
+            }
+
+        }
+
+        let nombreMayor = obrasUsuario[obraMasHoras].nombre; //Acá está la mayor obra y debajo cuanto consume
+        let MasConsumo = obrasUsuario[obraMasHoras].luces * obrasUsuario[obraMasHoras].horas * calcularConsumo;
+        let costoDiario = MasConsumo * Number(costo.value); //Acá el costo diario pedido
+
+        // Ahora la ultima parte, el porcentaje de obras con mas de 20 luces:
+
+        let mayorA20 = 0
+
+        for (let i = 0; i < obrasUsuario.length; i++) {
+
+            if (obrasUsuario[i].luces > 20) {
+
+                mayorA20 = mayorA20 + 1;
+
+                //Dice cuantas obras tienen mayor a 20 luces en cantidad
+            }
+        }
+
+        let porcentaje = mayorA20 * 100 / obrasUsuario.length; // Cálculo en porcentaje
+
+        // boton para los resultados
+
+        botonCalcular.addEventListener("click", function() {
+
+            aparecerResultados.innerHTML = `
+
+            <h2>Resultados</h2>
+
+            <p>Consumo diario total: ${totalConsumo} kWh</p>
+            <p>Consumo diario promedio por obra: ${promedio} kWh</p>
+            <p>Obra con mayor tiempo de funcionamiento: ${nombreMayor}</p>
+            <p>Costo diario de esa obra: $${costoDiario}</p>
+            <p>Porcentaje de obras que utilizan mas de 20 luces: ${porcentaje}%</p>
+
+            `;
+
+            botonReiniciar.disabled = false
+
+        });
+
     }
 });
