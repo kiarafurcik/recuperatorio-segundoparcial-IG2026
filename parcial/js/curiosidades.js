@@ -163,7 +163,7 @@ botonEnviarObra.addEventListener("click", function() {
 
          let promedio = totalConsumo / obrasUsuario.length; //Acá está el promedio por obra
 
-        // Para calcular la mayor obra
+        // Para calcular la mayor obra:
 
         let obraMasHoras = 0
 
